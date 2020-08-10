@@ -7,10 +7,14 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 
+const db_user = 'USERNAME';
+const db_password = 'PASSWORD';
+const db_name = 'DB_NAME';
+
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://igti:igti123@cluster0-qqm3y.mongodb.net/nestjs-todolist?retryWrites=true&w=majority',
+      `mongodb+srv://${db_user}:${db_password}@cluster0-qqm3y.mongodb.net/${db_name}?retryWrites=true&w=majority`,
     ),
     AuthModule,
     TasksModule,
